@@ -4,6 +4,7 @@ import { getUser } from "../../utilities/users-service";
 import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
+import ProductList from "../../components/ProductList/ProductList";
 
 import Home from "../Home/Home";
 import * as itemsAPI from "../../utilities/items-api";
@@ -34,7 +35,11 @@ export default function App() {
         activeCat={activeCat}
         setActiveCat={setActiveCat}
       />
-
+      <ProductList
+        productItems={productItems.filter(
+          (item) => item.category.name === activeCat
+        )}
+      />
       <>
         <Routes>
           <Route path="/home" element={<Home />} />
