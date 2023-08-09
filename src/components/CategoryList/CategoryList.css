@@ -1,0 +1,27 @@
+.CategoryList {
+  color: black;
+  list-style: none;
+  padding: 0;
+  font-size: 1.7vw;
+  display: flex;
+
+}
+
+.CategoryList li {
+  padding: .6vmin;
+  text-align: center;
+  border-radius: .5vmin;
+  margin-bottom: .5vmin;
+}
+
+.CategoryList li:hover:not(.active) {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+
+.CategoryList li.active {
+  color: black;
+  background-color: darkgray;
+  border: .1vmin solid black;
+}
