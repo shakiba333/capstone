@@ -1,18 +1,16 @@
-import './CategoryList.css';
+import { Link } from "react-router-dom";
+import "./CategoryList.css";
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
-  const cats = categories.map(cat =>
-    <li
+  const cats = categories.map((cat) => (
+    <Link
       key={cat}
-      className={cat === activeCat ? 'active' : ''}
+      to={`/categories/${cat}`}
+      className={cat === activeCat ? "active" : "notActive"}
       onClick={() => setActiveCat(cat)}
     >
-      {cat}
-    </li>
-  );
-  return (
-    <ul className="CategoryList">
-      {cats}
-    </ul>
-  );
+      &nbsp;{cat} &nbsp; |
+    </Link>
+  ));
+  return <>{cats}</>;
 }

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
+import CategoryList from "../CategoryList/CategoryList";
+
 export default function NavBar({
   user,
   setUser,
@@ -18,16 +20,11 @@ export default function NavBar({
         <>
           <Link to="/home">Home</Link>
           &nbsp; | &nbsp;
-          {categories.map((category) => (
-            <Link
-              key={category}
-              to={`/categories/${category}`}
-              className={category === activeCat ? "active" : ""}
-              onClick={() => setActiveCat(category)}
-            >
-              {category} &nbsp; | &nbsp;
-            </Link>
-          ))}
+          <CategoryList
+            categories={categories}
+            activeCat={activeCat}
+            setActiveCat={setActiveCat}
+          />
         </>
       }
       {user ? (
